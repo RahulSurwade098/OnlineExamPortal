@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +28,7 @@ SECRET_KEY = '@k0#p3kidu)yaaa3u1hplxz)f@^6xiy384*(+n@@s5x#1bx@m5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['onlineexamportal-ay5e.onrender.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -125,6 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS=[
 STATIC_DIR,
@@ -145,3 +147,5 @@ EMAIL_HOST_PASSWORD = '72766466' # host email password required
 # otherwise you will get SMTPAuthenticationError at /contactus
 # this process is required because google blocks apps authentication by default
 EMAIL_RECEIVING_USER = ['rahulsurwade08@gmail.com'] # email on which you will receive messages sent from website
+
+django_heroku.settings(locals())
